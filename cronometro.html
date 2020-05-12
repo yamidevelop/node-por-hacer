@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Page Title</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+</head>
+
+<body>
+    <p class="form-control-static">
+        <span id="span_W0009vTIEMPOEVAL" data-name="span_W0009vTIEMPOEVAL">
+            10:51:55
+        </span>
+    </p>
+
+
+    <script>
+        let contador_Horas = @hora;
+        let contador_Minutos = @min;
+        let contador_Segundos = @seg;
+        let Estado = @estCodigo;
+
+        let span = document.getElementById("span_W0009vTIEMPOEVAL");
+
+        if (Estado == 3) {
+            setInterval(() => {
+                if (contador_Segundos == 59) {
+                    contador_Segundos = 0;
+                    contador_Minutos++;
+
+                    if (contador_Minutos == 59) {
+                        contador_Minutos = 0;
+                        contador_Horas++;
+                    }
+                }
+
+                contador_Segundos++;
+
+                var mensaje = `${contador_Horas}:${contador_Minutos}:${contador_Segundos}`;
+                console.log(mensaje);
+                span.innerHTML = mensaje
+            }, 1000);
+        }
+    </script>
+</body>
+
+</html>
